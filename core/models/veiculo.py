@@ -1,13 +1,12 @@
 from django.db import models
 
-from core.models.acessorio import Acessorio
-from core.models.cor import Cor
-from core.models.modelo import Modelo
-
 
 class Veiculo(models.Model):
-    nome = models.IntegerField(null=True , blank=True)
-    preco = models.DecimalField(max_length=10 , decimal_places=2 , blank=True, default=0)
-    modelo = models.ForeignKey(Modelo, on_delete=models.PROTECT, related_name='Veiculos', null=True, blank=True)
-    cor = models.ForeignKey(Cor ,on_delete=models.PROTECT, related_name='Veiculos', null=True , blank=True )
-    acessorio = models.ForeignKey(Acessorio, on_delete=models.PROTECT, related_name='Veiculos', null=True, blank=True)
+    modelo = models.ForeignKey('core.Modelo', on_delete=models.CASCADE)
+    cor = models.ForeignKey('core.Cor', on_delete=models.CASCADE)
+    ano = models.IntegerField(null=True)
+    preco = models.DecimalField(max_digits=10, decimal_places=2, null=True, default=0)
+    acessorios = models.ManyToManyField('core.Acessorio')
+
+    def __str__(self):
+        return f'{self.id},{self.modelo}  {self.cor}  {self.ano}  {self.preco} - {self.acessorios}'
