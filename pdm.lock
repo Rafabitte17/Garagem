@@ -5,10 +5,10 @@
 groups = ["default", "dev"]
 strategy = ["inherit_metadata"]
 lock_version = "4.5.0"
-content_hash = "sha256:7ffd61c468e3a539f821ee2adb3d07af24a50b102643416572628f0291b52810"
+content_hash = "sha256:c669aa7578d49f747163643ada9bc7cd45131483e87467f5185c1e5605385c7b"
 
 [[metadata.targets]]
-requires_python = ">=3.10"
+requires_python = "==3.10.*"
 
 [[package]]
 name = "annotated-types"
@@ -406,6 +406,7 @@ version = "0.3.9"
 requires_python = ">=3.8"
 summary = "serialize all of Python"
 groups = ["dev"]
+marker = "python_version < \"3.11\""
 files = [
     {file = "dill-0.3.9-py3-none-any.whl", hash = "sha256:468dff3b89520b474c0397703366b7b95eebe6303f108adf9b19da1f702be87a"},
     {file = "dill-0.3.9.tar.gz", hash = "sha256:81aa267dddf68cbfe8029c42ca9ec6a4ab3b22371d1c450abc54422577b4512c"},
